@@ -42,7 +42,7 @@ for r in l:
     for i in soup.findAll("p",{"class": "o-Ingredients__a-Ingredient"}):
         df = df.append({'recipe':'https:'+r, 'ingredient':i.text.strip(), 'source':'foodnetwork'}, ignore_index = True)
         
-df.to_csv(os.path.join(path,'foodnetwork.csv'))
+df.to_csv(os.path.join(path,'foodnetwork.csv'), index = False)
 
 ############################################################
 #    Get List of Recipes from allrecipes
@@ -74,5 +74,5 @@ for r in l:
     for e in soup.find_all(class_ = 'ingredients-item-name'):
         df = df.append({'recipe':r, 'ingredient':e.text.strip(), 'source':'allrecipes'}, ignore_index = True)
 
-df.to_csv(os.path.join(path,'allrecipes.csv'))
+df.to_csv(os.path.join(path,'allrecipes.csv'), index = False)
 
